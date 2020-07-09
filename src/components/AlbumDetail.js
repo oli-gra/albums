@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, StyleSheet, Linking } from 'react-native'
 import Section from './Section';
+import Button from './Button'
 
 const AlbumDetail = ({ album }) => {
   const {
@@ -11,6 +12,7 @@ const AlbumDetail = ({ album }) => {
   const {
     title,
     artist,
+    url,
     thumbnail_image,
     image } = album
   return <View style={container}>
@@ -29,6 +31,9 @@ const AlbumDetail = ({ album }) => {
       <Image
         style={album_image}
         source={{ uri: image }} />
+    </Section>
+    <Section>
+      <Button onPress={() => Linking.openURL(url)}>BUY</Button>
     </Section>
   </View>
 }
